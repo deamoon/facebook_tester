@@ -13,7 +13,7 @@ def light(request):
 	light_data = Light.objects.all()
 	for data in light_data:
 		dict_data = {
-			'light_id' : data.id
+			'light_id' : data.id,
 			'light_level' : data.level
 		}
 		response_data.append(dict_data)
