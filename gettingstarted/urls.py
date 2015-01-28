@@ -10,6 +10,7 @@ urlpatterns = patterns('',
     # url(r'^$', 'gettingstarted.views.home', name='home'),
     # url(r'^blog/', include('blog.urls')),
 
+    url(r'^light$', hello.views.light, name='light'),
     url(r'^$', hello.views.index, name='index'),
     url(r'^db', hello.views.db, name='db'),
     url(r'^admin/', include(admin.site.urls)),
