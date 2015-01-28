@@ -19,6 +19,9 @@ def light(request):
 		response_data.append(dict_data)
 	return HttpResponse(json.dumps(response_data), content_type="application/json")
 
+# def light_edit(request):
+	
+
 def db(request):
 
     greeting = Greeting()
