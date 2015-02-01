@@ -1,0 +1,63 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <title>HTML5 JavaScript Piano - with Data URIs</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'piano/piano.css' %}">
+</head>
+
+<body data-twttr-rendered="true">
+
+    {{ hello }}
+    
+    <div id="content">
+        <div id="content-inner">
+            <div id="piano">
+                <h1>Javascript Piano</h1>
+                
+                <div class="keys">
+                    <div data-key="-12" class="key"></div>
+                    <div data-key="-11" class="key black black1"></div>
+                    <div data-key="-10" class="key"></div>
+                    <div data-key="-9" class="key black black3"></div>
+                    <div data-key="-8" class="key"></div>
+                    <div data-key="-7" class="key"></div>
+                    <div data-key="-6" class="key black black1"></div>
+                    <div data-key="-5" class="key"></div>
+                    <div data-key="-4" class="key black black2"></div>
+                    <div data-key="-3" class="key"></div>
+                    <div data-key="-2" class="key black black3"></div>
+                    <div data-key="-1" class="key"></div>
+                    <div data-key="0" class="key"></div>
+                    <div data-key="1" class="key black black1"></div>
+                    <div data-key="2" class="key"></div>
+                    <div data-key="3" class="key black black3"></div>
+                    <div data-key="4" class="key"></div>
+                    <div data-key="5" class="key"></div>
+                    <div data-key="6" class="key black black1"></div>
+                    <div data-key="7" class="key"></div>
+                    <div data-key="8" class="key black black2"></div>
+                    <div data-key="9" class="key"></div>
+                    <div data-key="10" class="key black black3"></div>
+                    <div data-key="11" class="key"></div>
+                    <div data-key="12" class="key"></div>
+                    <div data-key="13" class="key black black1"></div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+        
+
+
+    <script src="{% static 'piano/jquery-1.js' %}"></script>
+    <script src="{% static 'piano/audio.js' %}"></script>
+    <script src="{% static 'piano/piano.js' %}"></script>    
+
+</body>
+
+</html>
