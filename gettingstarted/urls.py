@@ -12,6 +12,7 @@ urlpatterns = patterns('',
     # url(r'^blog/', include('blog.urls')),
 
     url(r'^piano$', piano.views.index),
+    url(r'^piano/test1$', piano.views.test1),
     url(r'^piano/play$', piano.views.play),
     url(r'^piano/get$', piano.views.get),
     url(r'^light$', hello.views.light, name='light'),

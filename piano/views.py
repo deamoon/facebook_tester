@@ -19,3 +19,6 @@ def get(request):
     for data in last_ten_in_ascending_order:
         list_notes.append((data.id, data.note))
     return HttpResponse(json.dumps(list_notes), content_type="application/json")
+
+def test1(request):
+    return HttpResponse('test1')
