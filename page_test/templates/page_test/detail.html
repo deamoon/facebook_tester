@@ -2,29 +2,5 @@
 {% load staticfiles %}
 
 {% block content %}
-  <h1>{{ contest.name }}</h1>
-  
-  Стратегии:</br>
-  {% if attempts %}
-    <ul>
-    {% for attempt in attempts %}
-      <li><a href="{% url 'attempt:detail' attempt.id %}">
-      {% if attempt.name %}
-        {{ attempt.name }}
-      {% else %}
-        {{ attempt.user }} {{ attempt.id }}
-      {% endif %}
-    </a></li>  
-    {% endfor %}
-    </ul>
-  {% else %}
-    <p>No Attempts are available.</p>
-  {% endif %}
-
-  {{ contest.description | safe }}
-  time_limit = {{ contest.time_limit }}</br>
-  time_step_limit = {{ contest.time_step_limit }}</br>
-  memory_limit = {{ contest.memory_limit }}</br>
-  marketData = {{ contest.marketData }}</br>
-
+  {{ user.id }}
 {% endblock %}

@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block title %}
+	Facebook page tester
+{% endblock %}
+
+{% block head %}
+	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="{% static 'page_test/main.css' %}">
+	<script type="text/javascript" src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+{% endblock %}
+
+{% block content %}
+	<div id="main">
+		<div class="col-sm-10" style="margin-bottom:20px;">
+			<div id="greeting" class="col-sm-8" style="margin-left:20px">
+			</div>			
+		</div>
+
+		<div class="col-sm-12" style="margin-left:80px;">
+			<div class="col-sm-4">
+				<h4>Your companies:</h4>
+			</div>
+
+			<div class="col-sm-3 col-sm-offset-2">
+				<button type="button" class="btn btn-default" onclick="location.href='/page_test/add'">
+					Add new compain
+				</button>
+			</div>
+		</div>
+
+		<div id="companies" class="col-sm-7" style="margin-left:110px; margin-right:80px;">
+			{% if companys %}
+			    <ul>
+			    {% for company in companys %}
+			        <li class="compain"><a href="/page_test/{{company.id}}">{{ company.name }}</a></li>	
+			    {% endfor %}
+			    </ul>
+			{% else %}
+		    	<p>No companys are available.</p>
+			{% endif %}			
+		</div>
+	</div>
+
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+
+{% endblock %}

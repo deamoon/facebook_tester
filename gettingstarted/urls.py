@@ -12,7 +12,6 @@ urlpatterns = patterns('',
 
     url(r'^admin/', include(admin.site.urls)),    
     url(r'', include('staticpage.urls', namespace="staticpage")),
-    url(r'^page_test$', page_test.views.index),
-    url(r'^page_test/add$', page_test.views.add),
     url(r'^accounts/', include('registration.backends.default.urls')), # django-registration
+    url(r'^page_test/', include('page_test.urls', namespace="page_test")),
 )

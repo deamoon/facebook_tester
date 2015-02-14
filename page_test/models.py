@@ -6,6 +6,8 @@ class Company(models.Model):
     token = models.CharField(max_length=250)
     id_page = models.CharField(max_length=30)
     name = models.CharField(max_length=300)
+    start = models.DateTimeField()
+    end = models.DateTimeField()
 
     def __unicode__(self):
-       return 'Company ' + self.name
+        return 'Company ' + self.name
