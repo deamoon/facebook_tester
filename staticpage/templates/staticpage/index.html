@@ -1,0 +1,204 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% load staticfiles %}
+
+{% block title %}
+	Facebook page tester
+{% endblock %}
+
+{% block navbar-menu %}
+	      <ul class="nav navbar-nav">
+	        <li class="active"><a href="#home" class="smothScroll">{% trans "Начало" %}</a></li>
+	        <li class=""><a href="#desc" class="smothScroll">{% trans "Описание" %}</a></li>
+	        <li class=""><a href="#showcase" class="smothScroll">{% trans "Пример" %}</a></li>
+	        <li class=""><a href="#contact" class="smothScroll">{% trans "Контакты" %}</a></li>
+	      </ul>
+{% endblock %}
+
+{% block navbar-user %}
+	      <ul class="nav navbar-nav navbar-right">
+	        <li>
+	          &nbsp;
+	          <button onclick="location.href='/accounts/register'" type="button" class="btn btn-success navbar-btn">Sign up</button>
+      		</li>
+      		<li>  
+      		  &nbsp;    		  
+              <button onclick="location.href='/accounts/login'" type="button" class="btn btn-primary navbar-btn">Login</button>              
+            </li>           
+{% endblock %}
+
+{% block content %}
+<section id="home" name="home"></section>
+	<div id="headerwrap">
+	  <div class="container">
+	      <div class="row centered">
+	        <div class="col-lg-12">
+              <h1>{% trans "Добро пожаловать на " %}<b>QuantForces</b></h1>
+				<h3>{% trans "Покажи свою силу" %}</h3>
+				<br>
+	    	</div>		
+	      </div>
+	    </div> <!--/ .container -->
+	</div><!--/ #headerwrap -->
+
+
+	<section id="desc" name="desc"></section>
+	<!-- INTRO WRAP -->
+	<div id="intro">
+	  <div class="container">
+		<div class="row centered">
+		  <h1>{% trans "Обзор возможностей" %}</h1>
+		  <br>
+		  <br>
+		  <div class="col-lg-4">
+		    <img src="{% static 'staticpage/img/intro01.png' %}" alt="">
+			<h3>{% trans "Сообщество" %}</h3>
+			<p>{% trans "Описание сообщество" %}</p>
+		  </div>
+		  <div class="col-lg-4">
+			<img src="{% static 'staticpage/img/intro02.png' %}" alt="">
+			<h3>{% trans "Идеи" %}</h3>
+			<p>{% trans "Описание идеи" %}</p>
+		  </div>
+		  <div class="col-lg-4">
+			<img src="{% static 'staticpage/img/intro03.png' %}" alt="">
+			  <h3>{% trans "Торговля" %}</h3>
+			  <p>{% trans "Описание торговля" %}</p>
+		  </div>
+		</div>
+		<br>
+		<hr>
+	  </div> <!--/ .container -->
+	</div><!--/ #introwrap -->
+	
+	<!-- FEATURES WRAP -->
+	<div id="features">
+	  <div class="container">
+		<div class="row">
+		  <h1 class="centered">{% trans "Что специального?" %}</h1>
+		  <br>
+		  <br>
+		  <div class="col-sm-6 centered">
+		    <img class="img-responsive center-block" src="{% static 'staticpage/img/feautures.png' %}">
+		  </div>
+		  <div class="col-sm-6 centered-sm">
+		    <h3>{% trans "Всякие плюшки" %}</h3>
+		    <br>
+		    <!-- ACCORDION -->
+		    <div class="accordion ac" id="accordion2">
+		      <div class="accordion-group">
+		        <div class="accordion-heading">
+		          <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne">
+		            {% trans "Торговая песочница" %}
+		          </a>
+		        </div><!-- /accordion-heading -->
+		        <div id="collapseOne" class="accordion-body collapse in">
+		          <div class="accordion-inner">
+				    <p>{% trans "Текст под песочницей" %}</p>
+				  </div><!-- /accordion-inner -->
+		        </div><!-- /collapse -->
+		      </div><!-- /accordion-group -->
+		      <br>
+		
+		      <div class="accordion-group">
+		        <div class="accordion-heading">
+		          <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseTwo">
+		          {% trans "Алгоритмические достижения" %}
+		          </a>
+		        </div>
+		        <div id="collapseTwo" class="accordion-body collapse">
+		          <div class="accordion-inner">
+				    <p>{% trans "Текст про алгоритмические достижения" %}</p>
+				  </div><!-- /accordion-inner -->
+		        </div><!-- /collapse -->
+		      </div><!-- /accordion-group -->
+		      <br>
+		
+		      <div class="accordion-group">
+		        <div class="accordion-heading">
+		          <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseThree">
+		            {% trans "Реальные данные" %}
+		          </a>
+		        </div>
+		        <div id="collapseThree" class="accordion-body collapse">
+		          <div class="accordion-inner">
+				    <p>{% trans "Текст про реальные данные" %}</p>
+				  </div><!-- /accordion-inner -->
+		        </div><!-- /collapse -->
+		      </div><!-- /accordion-group -->
+		      <br>
+		                
+		      <div class="accordion-group">
+		        <div class="accordion-heading">
+		          <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseFour">
+		            {% trans "Показывай свои идеи" %}
+		          </a>
+		        </div>
+		        <div id="collapseFour" class="accordion-body collapse">
+		          <div class="accordion-inner">
+				    <p>{% trans "Текст про показывай свои идеи" %}</p>
+				  </div><!-- /accordion-inner -->
+		        </div><!-- /collapse -->
+		      </div><!-- /accordion-group -->
+		      <br>			
+		    </div><!-- Accordion -->
+	      </div>
+	    </div>
+      </div><!--/ .container -->
+    </div><!--/ #features -->
+	
+	
+	<section id="showcase" name="showcase"></section>
+	<div id="showcase">
+	  <div class="container">
+		<div class="row">
+		  <h1 class="centered">{% trans "Пример" %}</h1>
+		  <br>
+		  <!-- graphic -->
+		  <div class="col-sm-12">
+		    <script>
+		     
+		    </script>
+		  </div>
+		  <!-- /graphic -->
+		</div>
+		<br>
+		<br>
+		<br>	
+	  </div><!-- /container -->
+	</div>	
+
+	<section id="contact" name="contact"></section>
+	<div id="footerwrap">
+	  <div class="container">
+	    <div class="col-lg-5">
+		  <h3>{% trans "Команда QuantForces" %}</h3>
+		  <p>
+			{% trans "Ивановский Дмитрий" %}<br>
+			{% trans "Талипов Камиль" %}
+		  </p>
+		</div>
+			
+	    <div class="col-lg-7">
+		  <h3>{% trans "Напишите нам" %}</h3>
+		  <br>
+		  <form role="form" action="#" method="post" enctype="plain"> 
+		    <div class="form-group">
+			  <label for="name1">{% trans "Имя" %}</label>
+			  <input type="name" name="Name" class="form-control" id="name1" placeholder="{% trans "Ваше имя" %}">
+		    </div>
+		    <div class="form-group">
+			  <label for="email1">{% trans "E-mail адрес" %}</label>
+			  <input type="email" name="Mail" class="form-control" id="email1" placeholder="{% trans "Ваш e-mail" %}">
+		    </div>
+		    <div class="form-group">
+			  <label>{% trans "Текст сообщения" %}</label>
+			  <textarea class="form-control" name="Message" rows="3"></textarea>
+		    </div>
+		    <br>
+		    <button type="submit" class="btn btn-large btn-success">{% trans "Отправить" %}</button>
+		  </form>
+	    </div>
+	  </div>
+	</div>
+{% endblock %}

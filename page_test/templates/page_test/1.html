@@ -1,16 +1,20 @@
-<link href="{{ STATIC_URL }}django_facebook/css/facebook.css" type="text/css" rel="stylesheet" media="all" />
-{% include 'django_facebook/_facebook_js.html' %}
+{% extends 'base.html' %}
+{% load staticfiles %}
 
-<form action="{% url 'facebook_connect' %}?facebook_login=1" method="post">
-    <input type="hidden" value="{{ request.path }}" name="next" />
-    <input type="hidden" value="{{ request.path }}" name="register_next" />
-    <input type="hidden" value="{{ request.path }}" name="error_next" />
-    {% csrf_token %}
-    <input onclick="F.connect(this.parentNode); return false;" type="image" src="{{ STATIC_URL }}django_facebook/images/facebook_login.png" />
-</form>
+{% block content %}
+	<form style="margin-left:10%;" action="" method="post">          
+	  {% csrf_token %}
 
-<form action="{% url 'facebook_connect' %}?facebook_login=1" method="post">
-    <input type="hidden" value="1" name="connect" />
-    {% csrf_token %}
-    <a onclick="F.connect(this.parentNode); return false;" href="javascript:void(0);">Connect</a>
-</form>
+	  <br/>      
+
+	  <input type="text" name="name" placeholder="name"> </input>
+	  <input type="text" name="token" placeholder="token"> </input>
+	  <input type="text" name="id_page" placeholder="Id page"> </input>
+
+	  <button type="submit" class="btn btn-default">Send algo</button>
+	  
+	  <!-- <div>        
+	    <textarea id="code" name="code" rows="20"></textarea>
+	   </div> -->
+	</form> 
+{% endblock %}

@@ -1,0 +1,173 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-09-28 23:10+0400\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: registration/admin.py:23
+msgid "Activate users"
+msgstr ""
+
+#: registration/admin.py:43
+msgid "Re-send activation emails"
+msgstr ""
+
+#: registration/forms.py:34
+msgid "Username"
+msgstr ""
+
+#: registration/forms.py:35
+msgid "This value may contain only letters, numbers and @/./+/-/_ characters."
+msgstr ""
+
+#: registration/forms.py:36
+msgid "E-mail"
+msgstr ""
+
+#: registration/forms.py:38
+msgid "Password"
+msgstr ""
+
+#: registration/forms.py:40
+msgid "Password (again)"
+msgstr ""
+
+#: registration/forms.py:50
+msgid "A user with that username already exists."
+msgstr ""
+
+#: registration/forms.py:64
+msgid "The two password fields didn't match."
+msgstr ""
+
+#: registration/forms.py:75
+msgid "I have read and agree to the Terms of Service"
+msgstr ""
+
+#: registration/forms.py:76
+msgid "You must agree to the terms to register"
+msgstr ""
+
+#: registration/forms.py:92
+msgid ""
+"This email address is already in use. Please supply a different email "
+"address."
+msgstr ""
+
+#: registration/forms.py:119
+msgid ""
+"Registration using free email addresses is prohibited. Please supply a "
+"different email address."
+msgstr ""
+
+#: registration/models.py:181
+msgid "user"
+msgstr ""
+
+#: registration/models.py:182
+msgid "activation key"
+msgstr ""
+
+#: registration/models.py:187
+msgid "registration profile"
+msgstr ""
+
+#: registration/models.py:188
+msgid "registration profiles"
+msgstr ""
+
+#: registration/templates/registration/activation_complete.html:4
+msgid "Активация"
+msgstr "Activation"
+
+#: registration/templates/registration/activation_complete.html:5
+msgid "Привет"
+msgstr "Hello"
+
+#: registration/templates/registration/activation_complete.html:6
+msgid "Ваша учетная запись активирована"
+msgstr "Your activation was completed"
+
+#: registration/templates/registration/activation_complete.html:6
+msgid "Заходите"
+msgstr "Go"
+
+#: registration/templates/registration/activation_complete.html:6
+msgid "на сайт"
+msgstr "on site"
+
+#: registration/templates/registration/activation_email.txt:3
+msgid "Регистрация на сайте"
+msgstr "Registration on site"
+
+#: registration/templates/registration/activation_email.txt:4
+msgid "Для активации вашего аккаунта необходимо перейти по ссылке:"
+msgstr "To activate your account you must click on the link"
+
+#: registration/templates/registration/activation_email.txt:6
+msgid "Спасибо!"
+msgstr "Thank you!"
+
+#: registration/templates/registration/activation_email_subject.txt:3
+msgid "Активация аккаунта"
+msgstr "Activation of account"
+
+#: registration/templates/registration/login.html:3
+#: registration/templates/registration/login.html:7
+msgid "Авторизация"
+msgstr "Authorization"
+
+#: registration/templates/registration/login.html:10
+msgid "вы уже авторизованы"
+msgstr "You are authorized"
+
+#: registration/templates/registration/login.html:11
+msgid "Впрочем, всегда можно"
+msgstr "You can"
+
+#: registration/templates/registration/login.html:11
+msgid "выйти"
+msgstr "logout"
+
+#: registration/templates/registration/login.html:43
+#: registration/templates/registration/registration_form.html:6
+#: registration/templates/registration/registration_form.html:16
+msgid "Регистрация"
+msgstr "Registration"
+
+#: registration/templates/registration/logout.html:4
+msgid "Выход"
+msgstr "Exit"
+
+#: registration/templates/registration/logout.html:5
+msgid "Спасибо, что были с нами. Ждем вас снова."
+msgstr ""
+
+#: registration/templates/registration/registration_complete.html:4
+msgid "Регистрация завершена"
+msgstr "Thank you for being with us. Waiting for you again."
+
+#: registration/templates/registration/registration_form.html:10
+msgid "Уже зарегистрированы?"
+msgstr "Already registered?"
+
+#: registration/templates/registration/registration_form.html:10
+msgid "Войти"
+msgstr "Login"
+
+#: registration/templates/registration/registration_form.html:23
+msgid "Отправить"
+msgstr "Submit"

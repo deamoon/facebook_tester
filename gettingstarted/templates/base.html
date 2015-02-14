@@ -1,0 +1,82 @@
+{% load i18n %}
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en"><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="assets/ico/favicon.ico">
+
+	<title>{% block title %}{% endblock %}</title>
+    <!-- Bootstrap core CSS -->
+    <link href="{% static 'staticpage/css/bootstrap.min.css' %}" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="{% static 'staticpage/css/main.css' %}" rel="stylesheet">
+    
+    <link href="{% static 'staticpage/css/font.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static 'staticpage/css/font2.css' %}" rel="stylesheet" type="text/css">
+    
+    <script src="{% static 'staticpage/js/jquery.min.js' %}"></script>
+
+    <!-- script src="{% static 'staticpage/js/smoothscroll.js' %}"></script -->
+    {% block head %}{% endblock %}
+  </head>
+
+  <body data-spy="scroll" data-offset="0" data-target="#navigation">
+
+    <!-- Fixed navbar -->
+	<div id="navigation" class="navbar navbar-default navbar-fixed-top">
+	  <div class="container">
+	    <div class="navbar-header">
+	      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span>
+	      </button>
+	      <a class="navbar-brand" href="/"><b>Facebook page tester</b></a>
+	    </div>
+        
+        <div class="navbar-collapse collapse">
+          {% if user.is_authenticated %}
+            <ul class="nav navbar-nav">                        
+              <li id="/accounts/profile/"><a href="/accounts/profile/">{% trans "Аккаунт" %}</a></li>
+              <li id="/admin/"><a href="/admin/">{% trans "Администрирование" %}</a></li>
+            </ul>              
+          {% else %}    
+            {% block navbar-menu %}{% endblock %}
+            {% block navbar-user %}{% endblock %}
+          {% endif %}            
+        </div>
+	  </div>
+	</div>
+
+	{% block content %}{% endblock %}
+
+
+
+<script src="{% static 'staticpage/js/bootstrap.min.js' %}"></script>
+
+<script>
+      $('.navbar li').click(function(e) {
+        if (e.target.nodeName.toLowerCase() !== 'button') {
+          window.location.href=$('a', this).attr('href');
+          var y = $(window).scrollTop();
+          $(window).scrollTop(y + 1);
+          
+          e.preventDefault();
+        }
+      });
+</script> 
+<script type="text/javascript">
+  $(document).ready(function() {
+    var url = window.location;
+    //Will only work if string in href mathces with location
+    $('ul.nav a[href="' + url + '"]').parent().addClass('active');
+    //Will also work for relative and absolute hrefs
+    $('ul.nav a').filter(function() {
+      return this.href == url;
+    }).parent().addClass('active');
+  });
+</script> 
+
+</body></html>

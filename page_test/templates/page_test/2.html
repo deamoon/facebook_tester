@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block content %}
+	Hellow, {{ user }}!
+	</br>
+	Add new <a href="/page_test/add">company</a>
+	</br>
+	Здесь список компаний:
+    </br>
+	{% if companys %}
+	    <ul>
+	    {% for company in companys %}
+	        <li><a href="/page_test/{{company.id}}">{{ company.name }}</a></li>	
+	    {% endfor %}
+	    </ul>
+	{% else %}
+    	<p>No companys are available.</p>
+	{% endif %}
+
+{% endblock %}
