@@ -3,12 +3,14 @@
 
 {% block content %}
   {% if data %}
-          <ul>
+        <ul>
+          <table>
           {% for d in data %}
               <img height="200" src="{{d.source}}">
               <!-- <li class="compain"><a href="/page_test/{{company.id}}">{{ company.name }}</a></li>  -->
           {% endfor %}
-          </ul>
+          </table>
+        </ul>
       {% else %}
           <p>No data are available.</p>
   {% endif %}

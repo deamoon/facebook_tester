@@ -54,6 +54,7 @@ def add(request):
         company = Company(token=token, id_page=id_page, user=request.user, name=name, 
                           start=strToDate(start),
                           end=strToDate(end),
+                          level=0,
                          )
         company.save()
         return redirect('/page_test')

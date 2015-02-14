@@ -2,6 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 
 class Company(models.Model):
+    level = models.IntegerField()
     user = models.ForeignKey(User)
     token = models.CharField(max_length=250)
     id_page = models.CharField(max_length=30)
