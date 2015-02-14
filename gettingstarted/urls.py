@@ -5,6 +5,7 @@ admin.autodiscover()
 
 import hello.views
 import piano.views
+import page_test.views
 
 urlpatterns = patterns('',
     # Examples:
@@ -23,5 +24,8 @@ urlpatterns = patterns('',
     url(r'^$', hello.views.index, name='index'),
     url(r'^db', hello.views.db, name='db'),
     url(r'^admin/', include(admin.site.urls)),
-
+    
+    (r'^facebook/', include('django_facebook.urls')),
+    (r'^accounts/', include('django_facebook.auth_urls')), #Don't add this line if you use django registration or userena for registration and auth.
+    url(r'^page_test$', page_test.views.index),
 )

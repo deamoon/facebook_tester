@@ -29,6 +29,30 @@ TEMPLATE_DEBUG = True
 
 ALLOWED_HOSTS = []
 
+FACEBOOK_APP_ID = '1563714833886100'
+FACEBOOK_APP_SECRET = '9cab1d12527bccd8f54ad9f8a48de95b'
+
+TEMPLATE_CONTEXT_PROCESSORS = (
+    'django.contrib.auth.context_processors.auth',
+    'django.core.context_processors.debug',
+    'django.core.context_processors.i18n',
+    'django.core.context_processors.media',
+    'django.core.context_processors.static',
+    'django.core.context_processors.tz',
+    'django.core.context_processors.request',
+    'django.contrib.messages.context_processors.messages',
+    'django_facebook.context_processors.facebook',
+)
+
+AUTHENTICATION_BACKENDS = (
+    'django_facebook.auth_backends.FacebookBackend',
+    'django.contrib.auth.backends.ModelBackend',
+)
+
+AUTH_USER_MODEL = 'django_facebook.FacebookCustomUser'
+
+FACEBOOK_DEFAULT_SCOPE = ['email', 'user_about_me', 'user_birthday', 'user_website', 'manage_pages', 'user_activities', 'user_photos', 
+'read_friendlists']
 
 # Application definition
 
@@ -41,6 +65,8 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'hello',
     'piano',
+    'page_test',
+    'django_facebook',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -67,6 +93,14 @@ DATABASES = {
     }
 }
 
+# DATABASES['default'] =  dj_database_url.config(default='postgres://user:pass@localhost/dbname')
+
+ON_HEROKU = False
+if ON_HEROKU:
+    DATABASES['default'] =  dj_database_url.config()
+
+# DATABASES = {'default': dj_database_url.config(default=DATABASE_URL)}
+
 # Internationalization
 # https://docs.djangoproject.com/en/1.6/topics/i18n/
 
@@ -88,7 +122,6 @@ STATIC_URL = '/static/'
 
 
 # Parse database configuration from $DATABASE_URL
-DATABASES['default'] =  dj_database_url.config()
 
 # Honor the 'X-Forwarded-Proto' header for request.is_secure()
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
