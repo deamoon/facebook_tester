@@ -62,36 +62,6 @@ ALLOWED_HOSTS = []
 #     'django.contrib.auth.backends.ModelBackend',
 # )
 
-AUTHENTICATION_BACKENDS = (
-    'social_auth.backends.twitter.TwitterBackend',
-    'social_auth.backends.facebook.FacebookBackend',
-    'social_auth.backends.contrib.vk.VKOAuth2Backend',
-    'social_auth.backends.google.GoogleOAuth2Backend',
-    'social_auth.backends.contrib.github.GithubBackend',
-    'django.contrib.auth.backends.ModelBackend',
-)
-
-TEMPLATE_CONTEXT_PROCESSORS = (
-    'django.contrib.auth.context_processors.auth',
-    'django.core.context_processors.request',
-    'social_auth.context_processors.social_auth_by_name_backends',
-)
-
-
-import random
-SOCIAL_AUTH_DEFAULT_USERNAME = lambda: random.choice(['Darth_Vader', 'Obi-Wan_Kenobi', 'R2-D2', 'C-3PO', 'Yoda'])
-SOCIAL_AUTH_CREATE_USERS = True
-
-SOCIAL_AUTH_PIPELINE = (
-    'social_auth.backends.pipeline.social.social_auth_user',
-    'social_auth.backends.pipeline.associate.associate_by_email',
-    'social_auth.backends.pipeline.user.get_username',
-    'social_auth.backends.pipeline.user.create_user',
-    'social_auth.backends.pipeline.social.associate_user',
-    'social_auth.backends.pipeline.social.load_extra_data',
-    'social_auth.backends.pipeline.user.update_user_details'
-)
-
 # AUTH_USER_MODEL = 'django_facebook.FacebookCustomUser'
 
 LOGIN_REDIRECT_URL = "/"
@@ -102,14 +72,6 @@ LOGIN_REDIRECT_URL = "/"
 # Application definition
 
 ACCOUNT_ACTIVATION_DAYS = 2
-
-AUTH_USER_EMAIL_UNIQUE = True
-EMAIL_HOST = 'smtp.yandex.ru'
-EMAIL_PORT = 25
-EMAIL_HOST_USER = 'support@quantforces.com'
-EMAIL_HOST_PASSWORD = 'diman95quant'
-EMAIL_USE_TLS = False
-DEFAULT_FROM_EMAIL = 'support@quantforces.com'
 
 
 INSTALLED_APPS = (
