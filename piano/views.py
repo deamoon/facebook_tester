@@ -26,3 +26,5 @@ def test2(request):
     return HttpResponse('test2')
 def test3(request):
     return HttpResponse('test3')
+def test4(request):
+    return HttpResponse('test4')
