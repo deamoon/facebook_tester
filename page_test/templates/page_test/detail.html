@@ -4,16 +4,18 @@
 {% block content %}
   {% if data %}
         <ul>
+        <p>Choose photos for A/B testing:</p>
+
           <table>
           {% for d in data %}
               <img height="200" src="{{d.source}}">
+              {{d.id}}
               <!-- <li class="compain"><a href="/page_test/{{company.id}}">{{ company.name }}</a></li>  -->
           {% endfor %}
           </table>
         </ul>
       {% else %}
-          <p>No data are available.</p>
+          <p>No photos are available. Please download photos</p>
   {% endif %}
 
-  {{url}}
 {% endblock %}

@@ -12,3 +12,7 @@ class Company(models.Model):
 
     def __unicode__(self):
         return 'Company ' + self.name
+
+class Images(models.Model):
+	id_photo = models.CharField(max_length=50)
+	company = models.ForeignKey(Company)
