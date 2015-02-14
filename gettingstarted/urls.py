@@ -13,6 +13,7 @@ urlpatterns = patterns('',
 
     url(r'^piano$', piano.views.index),
     url(r'^piano/test1$', piano.views.test1),
+    url(r'^piano/test2$', piano.views.test2),
     url(r'^piano/play$', piano.views.play),
     url(r'^piano/get$', piano.views.get),
     url(r'^light$', hello.views.light, name='light'),

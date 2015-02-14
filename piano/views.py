@@ -22,3 +22,5 @@ def get(request):
 
 def test1(request):
     return HttpResponse('test1')
+def test2(request):
+    return HttpResponse('test2')
