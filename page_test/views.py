@@ -5,6 +5,8 @@ from models import Company
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import redirect
 from datetime import datetime
+from django.shortcuts import get_object_or_404
+import requests
 
 def strToDate(date):
     dat, t = date.strip().split()
@@ -14,10 +16,21 @@ def strToDate(date):
 
 @login_required
 def detail(request, company_id):
-    # if (company_id == request.user.id):
+    
+    company = get_object_or_404(Company, pk=company_id)
+
+    base_url = 'https://graph.facebook.com/' + company.id_page + '/photos/uploaded'
+    url = '%s?access_token=%s' % (base_url, company.token,)
+
+    content = requests.get(url).json()
+    
     context = {
         'user' : request.user,
+        'company' : company,
+        'data' : content["data"],
+        'url' : url,
     }
+
     return render(request, 'page_test/detail.html', context)
 
 @login_required
