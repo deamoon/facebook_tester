@@ -1,18 +1,62 @@
 {% extends "base.html" %}
 {% load staticfiles %}
 
+{% block head %}
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="{% static 'page_test/main.css' %}">
+
+  <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+
+<link rel="stylesheet" type="text/css" href="{% static 'page_test/image-picker.css' %}">
+<script src="{% static 'page_test/image-picker.js' %}" type="text/javascript"></script>
+{% endblock %}
+
 {% block content %}
   {% if data %}
         <ul>
-        <p>Choose photos for A/B testing:</p>
+        <p><h4>Choose photos for A/B testing:<h4></p>
 
-          <table>
-          {% for d in data %}
-              <img height="200" src="{{d.source}}">
-              {{d.id}}
-              <!-- <li class="compain"><a href="/page_test/{{company.id}}">{{ company.name }}</a></li>  -->
-          {% endfor %}
-          </table>
+        <form method="get">
+        {% csrf_token %}
+          <div id="main">
+            <div class="picker">
+              <select multiple name="multiple" class="image-picker show-html" style="display: none;">
+                {% for d in data %}
+                  <option data-img-src="{{d.source}}" value="{{d.id}}"></option>
+                {% endfor %}
+              </select>
+            </div>
+
+            <script type="text/javascript">
+
+              jQuery("select.image-picker").imagepicker({
+                hide_select:  false,
+              });
+
+              jQuery("select.image-picker.show-labels").imagepicker({
+                hide_select:  false,
+                show_label:   true,
+              });
+
+              jQuery("select.image-picker.limit_callback").imagepicker({
+                limit_reached:  function(){alert('We are full!')},
+                hide_select:    false
+              });
+
+              var container = jQuery("select.image-picker.masonry").next("ul.thumbnails");
+              container.imagesLoaded(function(){
+                container.masonry({
+                  itemSelector:   "li",
+                });
+              });
+
+            </script>
+          </div>
+          <button type="submit" class="btn btn-success">
+          Submit
+          </button>
+        </form>
+        
         </ul>
       {% else %}
           <p>No photos are available. Please download photos</p>
