@@ -113,9 +113,9 @@ DATABASES = {
 
 # DATABASES['default'] =  dj_database_url.config(default='postgres://user:pass@localhost/dbname')
 
-ON_HEROKU = False
-if ON_HEROKU:
-    DATABASES['default'] =  dj_database_url.config()
+# ON_HEROKU = False
+# if ON_HEROKU:
+DATABASES['default'] =  dj_database_url.config()
 
 # DATABASES = {'default': dj_database_url.config(default=DATABASE_URL)}
 
