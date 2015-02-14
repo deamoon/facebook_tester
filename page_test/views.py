@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 import json
-from models import Company
+from models import Company, Images
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import redirect
 from datetime import datetime
@@ -16,22 +16,33 @@ def strToDate(date):
 
 @login_required
 def detail(request, company_id):
-    
     company = get_object_or_404(Company, pk=company_id)
+    try:
+        photos_id = request.POST['multiple']
+        for i, photo_id in enumerate(photos_id):
+            image = Images(number=i, company=company, id_photo=photo_id)
+            image.save()
+        company.level = 1
+        company.save()
+        return redirect('/page_test')
+    except KeyError:
+        if company.level == 0:
+            base_url = 'https://graph.facebook.com/' + company.id_page + '/photos/uploaded'
+            url = '%s?access_token=%s' % (base_url, company.token,)
 
-    base_url = 'https://graph.facebook.com/' + company.id_page + '/photos/uploaded'
-    url = '%s?access_token=%s' % (base_url, company.token,)
+            content = requests.get(url).json()
+            
+            context = {
+                'user' : request.user,
+                'company' : company,
+                'data' : content["data"],
+                'url' : url,
+            }
 
-    content = requests.get(url).json()
-    
-    context = {
-        'user' : request.user,
-        'company' : company,
-        'data' : content["data"],
-        'url' : url,
-    }
-
-    return render(request, 'page_test/detail.html', context)
+            return render(request, 'page_test/detail.html', context)
+        else:
+            context = {}
+            return render(request, 'page_test/result.html', context)
 
 @login_required
 def index(request):
