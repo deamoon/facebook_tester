@@ -7,7 +7,7 @@ class Company(models.Model):
     level = models.IntegerField()
     user = models.ForeignKey(User)
     token = models.CharField(max_length=250)
-    id_page = models.CharField(max_length=30)
+    id_page = models.CharField(max_length=30, unique=True)
     name = models.CharField(max_length=300)
     start = models.DateTimeField()
     end = models.DateTimeField()
