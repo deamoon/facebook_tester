@@ -20,6 +20,16 @@ def get_like(token, id_page):
     content = requests.get(url).json()
     return int(content['likes'])
 
+def get_album_cover(token, id_page):
+    base_url = 'https://graph.facebook.com/' + id_page + "/albums"
+    url = '%s?access_token=%s' % (base_url, token,)
+    content = requests.get(url).json()
+    for d in content['data']:
+        if d["name"] == "Cover Photos":
+            return d["id"]
+    return ''
+
+
 def set_cover(user, company, cover):
     fields = {
         'cover':cover.id_photo, 
@@ -50,11 +60,19 @@ def detail(request, company_id):
         return redirect('/page_test')
     except KeyError:
         if company.level == 0:
-            base_url = 'https://graph.facebook.com/' + company.id_page + '/photos/uploaded'
-            url = '%s?access_token=%s' % (base_url, company.token,)
+            if not company.album_cover:
+                album = get_album_cover(company.token, company.id_page)
+                if album:
+                    company.album_cover = album
+                company.save()
 
-            content = requests.get(url).json()
-            
+            if company.album_cover:
+                base_url = 'https://graph.facebook.com/' + company.album_cover + '/photos'
+                url = '%s?access_token=%s' % (base_url, company.token,)
+                content = requests.get(url).json()
+            else:
+                content = {'data':[]}
+
             context = {
                 'user' : request.user,
                 'company' : company,

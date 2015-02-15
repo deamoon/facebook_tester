@@ -14,6 +14,7 @@ class Company(models.Model):
     number_photos = models.IntegerField(blank=True)
     current_photo_id = models.IntegerField(blank=True)
     likes = models.IntegerField(default=0)
+    album_cover = models.CharField(max_length=30, default='')
 
     def __unicode__(self):
         return 'Company ' + self.name
