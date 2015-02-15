@@ -8,7 +8,7 @@ from page_test.models import Company, Images
 import datetime, pytz
 import requests
 
-# sched = BlockingScheduler()
+sched = BlockingScheduler()
 
 def set_cover(user, company, cover):
     fields = {
@@ -19,7 +19,7 @@ def set_cover(user, company, cover):
     content = requests.post(base_url, fields)
 
 
-# @sched.scheduled_job('interval', minutes=1)
+@sched.scheduled_job('interval', minutes=1)
 def timed_job():
     companys = Company.objects.filter(level=1)
     now = datetime.datetime.now()
@@ -34,7 +34,7 @@ def timed_job():
             company.current_photo_id = next_photo.id
         company.save()
 
-# sched.start()
+sched.start()
 
-if __name__ == '__main__':
-    timed_job()
+# if __name__ == '__main__':
+#     timed_job()
