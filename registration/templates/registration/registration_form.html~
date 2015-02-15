@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% load crispy_forms_tags %}
+{% load staticfiles %}
+<link href="{{ STATIC_URL }}django_facebook/css/facebook.css" type="text/css" rel="stylesheet" media="all" />
+{% include 'django_facebook/_facebook_js.html' %}
+
+{% block title %}{% trans "Регистрация" %} - QuantForces{% endblock %}
+
+{% block navbar-user %} 
+    <ul class="nav navbar-nav navbar-right">
+        <li class=""><a href="/accounts/login"><small>{% trans "Уже зарегистрированы?" %}</small> {% trans "Войти" %}</a></li>             
+    </ul>
+{%endblock %}
+
+{% block content %}
+<div>
+    <h1>{% block header %}{% trans "Регистрация" %}{% endblock %}</h1>
+	<form action="{% url 'facebook_connect' %}?facebook_login=1" method="post">
+	<input type="hidden" value="{{ request.path }}" name="next" />
+	<input type="hidden" value="{{ request.path }}" name="register_next" />
+	<input type="hidden" value="{{ request.path }}" name="error_next" />
+	{% csrf_token %}
+	<input onclick="F.connect(this.parentNode); return false;" type="image" src="{{ STATIC_URL }}django_facebook/images/facebook_login.png" />
+	</form>
+    </div>
+<div>
+<h2>{% trans "Войти" %}</h2>
+<form action="{% url 'facebook_connect' %}?facebook_login=1" method="post">
+    <input type="hidden" value="1" name="connect" />
+    {% csrf_token %}
+    <a onclick="F.connect(this.parentNode); return false;" href="javascript:void(0);">Connect</a>
+</form>
+</div>
+{% endblock %}

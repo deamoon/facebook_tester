@@ -29,9 +29,9 @@ TEMPLATE_DEBUG = True
 
 PROJECT_ROOT = os.path.abspath(os.path.dirname(__file__))
 
-FACEBOOK_APP_ID = '417711135059038'
+FACEBOOK_APP_ID = '386708701500607'
 
-FACEBOOK_APP_SECRET = 'b1edd87343f4b938484aa058525ffbb9'
+FACEBOOK_APP_SECRET = '35ca801139763b8a3d42104494dfbe6d'
 
 TEMPLATE_DIRS = (
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".

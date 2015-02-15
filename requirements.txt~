@@ -10,4 +10,4 @@ django-registration
 django-crispy-forms
 requests
 APScheduler==3.0.0
-django_facebook==6.0.2
+django_facebook=6.0.2
