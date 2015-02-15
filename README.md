@@ -13,3 +13,9 @@ You only need to chooce images, and application will change cover image every 10
 The best with [heroku](https://heroku.com).
 
 Don't forget use cron 10 minutes on clock.py
+
+# Contributrs:
+
+* [deamoon](http://giuthub.com/deamoon)
+* [kamiltalipov](http://giuthub.com/kamiltalipov)
+* [Taygrim](http://giuthub.com/Taygrim)
