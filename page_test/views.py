@@ -25,7 +25,10 @@ def detail(request, company_id):
             photo_id, photo_source = photo_data.split('+')
             image = Images(number=i, company=company, id_photo=photo_id, source=photo_source)
             image.save()
+            if i == 0:
+                company.current_photo_id = image.id
         company.level = 1
+        company.number_photos = len(photos_datas)
         company.save()
         return redirect('/page_test')
     except KeyError:
@@ -72,6 +75,8 @@ def add(request):
                           start=datetime.now(),
                           end=strToDate(end),
                           level=0,
+                          number_photos=0,
+                          current_photo_id=0,
                          )
         company.save()
         return redirect('/page_test')

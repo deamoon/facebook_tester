@@ -9,6 +9,8 @@ class Company(models.Model):
     name = models.CharField(max_length=300)
     start = models.DateTimeField()
     end = models.DateTimeField()
+    number_photos = models.IntegerField(blank=True)
+    current_photo_id = models.IntegerField(blank=True)
 
     def __unicode__(self):
         return 'Company ' + self.name
