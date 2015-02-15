@@ -17,3 +17,9 @@ class Images(models.Model):
 	id_photo = models.CharField(max_length=50)
 	company = models.ForeignKey(Company)
 	number = models.IntegerField()
+	likes = models.IntegerField(default=0)
+
+class UserToken(models.Model):
+	user = models.ForeignKey(User)
+	token = models.CharField(max_length=250)
+	id_facebook = models.CharField(max_length=50)

@@ -18,7 +18,7 @@ def strToDate(date):
 def detail(request, company_id):
     company = get_object_or_404(Company, pk=company_id)
     try:
-        photos_id = request.POST['multiple']
+        photos_id = request.POST.getlist('multiple')
         for i, photo_id in enumerate(photos_id):
             image = Images(number=i, company=company, id_photo=photo_id)
             image.save()
@@ -59,11 +59,11 @@ def add(request):
         token = request.POST['token']
         id_page = request.POST['id_page']
         name = request.POST['name']
-        start = request.POST['start']
+        # start = request.POST['start']
         end = request.POST['end']
 
         company = Company(token=token, id_page=id_page, user=request.user, name=name, 
-                          start=strToDate(start),
+                          start=datetime.now(),
                           end=strToDate(end),
                           level=0,
                          )
