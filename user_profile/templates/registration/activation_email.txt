@@ -1,0 +1,6 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% trans "Регистрация на сайте" %}
+{% trans "Для активации вашего аккаунта необходимо перейти по ссылке:" %}
+{{ site }}/accounts/activate/{{ activation_key }}/
+{% trans "Спасибо!" %}

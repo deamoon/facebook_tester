@@ -11,6 +11,9 @@
   <link href="http://fonts.googleapis.com/css?family=Lato:400,500,800,400italic,500italic" rel="stylesheet" type="text/css">
   <link href="http://fonts.googleapis.com/css?family=Raleway:400,300,700" rel="stylesheet" type="text/css">
   <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+
+  <link href="{{ STATIC_URL }}django_facebook/css/facebook.css" type="text/css" rel="stylesheet" media="all" />
+	{% include 'django_facebook/_facebook_js.html' %}
 {% endblock %}
 
 {% block no-navbar %}{% endblock %}
@@ -32,12 +35,18 @@
   <div id="intro">
     <div class="container">
       <div class="row centered">
-        <button onclick="location.href='/accounts/login'" type="button" class="btn btn-success btn-xl">
-          Try it now!
-      </button>
+        <form action="{% url 'facebook_connect' %}?facebook_login=1" method="post">
+			<input type="hidden" value="{{ request.path }}" name="next" />
+			<input type="hidden" value="{{ request.path }}" name="register_next" />
+			<input type="hidden" value="{{ request.path }}" name="error_next" />
+			{% csrf_token %}
+			<input onclick="F.connect(this.parentNode); return false;" type="image" src="{{ STATIC_URL }}django_facebook/images/facebook_login.png" />
+		</form>
       </div>
     </div>
   </div>
+
+
 
 
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>

@@ -14,7 +14,9 @@ urlpatterns = patterns('',
     url(r'^admin/', include(admin.site.urls)),
     url(r'', include('staticpage.urls', namespace="staticpage")),
     url(r'^facebook/', include('django_facebook.urls')),
-    url(r'^accounts/', include('registration.backends.default.urls')), # django-registration
+    url(r'^profile/', include('user_profile.urls')),
+    url(r'^accounts/', include('django_facebook.auth_urls')),
+    # url(r'^accounts/', include('registration.backends.default.urls')), # django-registration
     url(r'^page_test/', include('page_test.urls', namespace="page_test")),
     url(r'^users/', user_profile.views.main),
 )

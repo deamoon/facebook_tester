@@ -4,6 +4,7 @@ from django.shortcuts import redirect
 def profile(request):
     context = {
         'name_user': "dima",
+        'user': request.user,
     }
     return render(request, 'user_profile/profile.html', context)
 

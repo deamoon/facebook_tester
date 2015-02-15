@@ -1,5 +1,7 @@
 from django.db import models
-from django.contrib.auth.models import User
+# from django.contrib.auth.models import User
+from django.contrib.auth import get_user_model as user_model
+User = user_model()
 
 class Company(models.Model):
     level = models.IntegerField()

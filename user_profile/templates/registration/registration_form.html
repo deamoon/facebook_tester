@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% load crispy_forms_tags %}
+{% load staticfiles %}
+
+{% block title %}{% trans "Регистрация" %} - QuantForces{% endblock %}
+
+{% block navbar-user %}
+<ul class="nav navbar-nav navbar-right">
+<li class=""><a href="/accounts/login"><small>{% trans "Уже зарегистрированы?" %}</small> {% trans "Войти" %}</a></li>
+</ul>
+{%endblock %}
+
+{% block content %}
+<div class="col-sm-2 col-sm-offset-5">
+<h1>{% block header %}{% trans "Регистрация" %}{% endblock %}</h1>
+<form class="form-horizontal col-md-12" method="post" action="{% url 'registration_register' %}">
+{% csrf_token %}
+{{ form|crispy }}
+<br>
+<div class="btn-group btn-group-justified">
+<div class="btn-group">
+<button type="submit" class="btn btn-success">{% trans "Отправить" %}</button>
+</div>
+</div>
+</form>
+</div>
+
+{% endblock %}

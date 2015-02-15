@@ -29,9 +29,9 @@ TEMPLATE_DEBUG = True
 
 PROJECT_ROOT = os.path.abspath(os.path.dirname(__file__))
 
-FACEBOOK_APP_ID = '417711135059038'
+FACEBOOK_APP_ID = '1563714833886100'
 
-FACEBOOK_APP_SECRET = 'b1edd87343f4b938484aa058525ffbb9'
+FACEBOOK_APP_SECRET = '9cab1d12527bccd8f54ad9f8a48de95b'
 
 TEMPLATE_DIRS = (
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
@@ -63,14 +63,13 @@ AUTHENTICATION_BACKENDS = (
     'django.contrib.auth.backends.ModelBackend',
 )
 
-# AUTH_USER_MODEL = 'django_facebook.FacebookCustomUser'
+AUTH_USER_MODEL = 'django_facebook.FacebookCustomUser'
 
 # AUTH_PROFILE_MODEL = 'django_facebook.FacebookProfile'
 
 LOGIN_REDIRECT_URL = "/"
 
-# FACEBOOK_DEFAULT_SCOPE = ['email', 'user_about_me', 'user_birthday', 'user_website', 'manage_pages', 'user_activities', 'user_photos', 
-# 'read_friendlists']
+FACEBOOK_DEFAULT_SCOPE = ['email', 'user_about_me', 'manage_pages', 'user_activities',]
 
 # Application definition
 
@@ -85,10 +84,11 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',    
     'page_test',
-    'registration', # django-registration
+    # 'registration', # django-registration
     'user_profile',
     'staticpage',
     'crispy_forms', # django-crispy-forms
+    'django_facebook',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -114,7 +114,7 @@ DATABASES = {
     }
 }
 
-DATABASES['default'] =  dj_database_url.config()
+# DATABASES['default'] =  dj_database_url.config()
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.6/topics/i18n/
