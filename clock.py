@@ -14,10 +14,17 @@ def set_cover(user, company, cover):
     fields = {
         'cover':cover.id_photo, 
         'access_token':company.token,
+        'no_notification':True,
+        'no_feed_story':True,
     }
     base_url = 'https://graph.facebook.com/' + company.id_page
     content = requests.post(base_url, fields)
 
+def get_like(company):
+    base_url = 'https://graph.facebook.com/' + company.id_page
+    url = '%s?access_token=%s' % (base_url, company.token,)
+    content = requests.get(url).json()
+    return int(content['likes'])
 
 # @sched.scheduled_job('interval', minutes=1)
 def timed_job():
@@ -28,9 +35,13 @@ def timed_job():
             company.level = 2
         else:            
             photo = Images.objects.get(id=company.current_photo_id)
-            set_cover(company.user, company, photo)
+            new_likes = get_like(company)
+            photo.likes = photo.likes + new_likes - company.likes
+            photo.save()
+            company.likes = new_likes
             next_photo = Images.objects.get(company=company, 
                                             number=(photo.number + 1) % company.number_photos)
+            set_cover(company.user, company, next_photo)
             company.current_photo_id = next_photo.id
         company.save()
 

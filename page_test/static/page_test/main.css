@@ -57,3 +57,8 @@
 .compain a:active {
 	text-decoration: none;
 }
+
+.h-tag {
+	font-family: "Raleway";
+	font-weight: bold;
+}

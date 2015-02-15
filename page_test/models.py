@@ -11,6 +11,7 @@ class Company(models.Model):
     end = models.DateTimeField()
     number_photos = models.IntegerField(blank=True)
     current_photo_id = models.IntegerField(blank=True)
+    likes = models.IntegerField(default=0)
 
     def __unicode__(self):
         return 'Company ' + self.name
