@@ -37,7 +37,8 @@
 			    {% for company in companys %}
 			    		{% if company.level == 0 %}
 			        	<li class="compain yellow-background"><a href="/page_test/{{company.id}}">{{ company.name }}</a></li>	
-			        {% else %}
+			        {% endif %}
+			        {% if company.level == 1 %}
 			        	<li class="compain green-background"><a href="/page_test/{{company.id}}">{{ company.name }}</a></li>	
 							{% endif %}        
 			    {% endfor %}
