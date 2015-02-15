@@ -22,7 +22,7 @@
             <div class="picker">
               <select multiple name="multiple" class="image-picker show-html" style="display: none;">
                 {% for d in data %}
-                  <option data-img-src="{{d.source}}" value="{{d.id}}"></option>
+                  <option data-img-src="{{d.source}}" value="{{d.id}}+{{d.source}}"></option>
                 {% endfor %}
               </select>
             </div>

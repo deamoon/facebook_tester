@@ -18,9 +18,12 @@ def strToDate(date):
 def detail(request, company_id):
     company = get_object_or_404(Company, pk=company_id)
     try:
-        photos_id = request.POST.getlist('multiple')
-        for i, photo_id in enumerate(photos_id):
-            image = Images(number=i, company=company, id_photo=photo_id)
+        photos_datas = request.POST.getlist('multiple')
+        request.POST['multiple']
+
+        for i, photo_data in enumerate(photos_datas):
+            photo_id, photo_source = photo_data.split('+')
+            image = Images(number=i, company=company, id_photo=photo_id, source=photo_source)
             image.save()
         company.level = 1
         company.save()
@@ -41,7 +44,10 @@ def detail(request, company_id):
 
             return render(request, 'page_test/detail.html', context)
         else:
-            context = {}
+            images = Images.objects.filter(company=company_id)
+            context = {
+                'data' : images,
+            }
             return render(request, 'page_test/result.html', context)
 
 @login_required

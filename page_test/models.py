@@ -18,6 +18,7 @@ class Images(models.Model):
 	company = models.ForeignKey(Company)
 	number = models.IntegerField()
 	likes = models.IntegerField(default=0)
+	source = models.CharField(max_length=355)
 
 class UserToken(models.Model):
 	user = models.ForeignKey(User)
