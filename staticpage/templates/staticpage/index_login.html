@@ -5,23 +5,41 @@
 	Facebook page tester
 {% endblock %} 
 
+{% block head %}
+  <link rel="stylesheet" type="text/css" href="{% static 'staticpage/css/jquery.datetimepicker.css' %}"/ >
+
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.11.3/themes/smoothness/jquery-ui.css">
+  <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+  <script src="https://code.jquery.com/ui/1.11.3/jquery-ui.js"></script>
+  <script src="{% static 'staticpage/js/jquery.datetimepicker.js' %}"></script>
+{% endblock %}
+
 {% block content %}
 	<div id="main"> 
 		<div class="col-sm-10 col-sm-offset-1" style="margin-top:25px;">
-			Привет, пользователь!
+			<h3>Привет, {{user.username}}!</h3>
+			<br>
+			<h4 style="font-weight:bold;">Select company:</h4>
 			<br>
 			{% if data %}
 				<form role="form" action="" method="post">
 					{% csrf_token %}
 
-					<select name="compain">
+					<select name="company">
 					{% for d in data %}
 						<option value="{{d.access_token}}+{{d.id}}+{{d.name}}">{{d.name}}</option>
 					{% endfor %}
 					</select>
 
+					<br>
+
+					<div class="form-group" style="margin-top:20px;">
+        				<label for="usr">End date:</label>
+        				<input name="end" id="datetimepickerend" class="form-control" type="text" >
+      				</div>
+
 					<button type="submit" class="btn btn-success">
-	        		Select compain
+	        		Add company
 	    			</button>
 				</form>
 			{% else %}
@@ -29,4 +47,9 @@
 			{% endif %}
 		</div>
 	</div>
+
+	<script type="text/javascript">
+  	$('#datetimepickerstart').datetimepicker();
+  	$('#datetimepickerend').datetimepicker();
+	</script>
 {% endblock %} 
