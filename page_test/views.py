@@ -76,8 +76,7 @@ def detail(request, company_id):
             context = {
                 'user' : request.user,
                 'company' : company,
-                'data' : content["data"],
-                'url' : url,
+                'data' : content["data"],                
             }
 
             return render(request, 'page_test/detail.html', context)
