@@ -1,0 +1,15 @@
+.description {
+	float: left;
+	height: 50px;
+	line-height: 50px;
+}
+
+.graphic {
+	height: 50px;
+	border-radius: 3px;
+	background: #0079ff;
+}
+
+.graphic:hover {
+	background: #006ce8;
+}

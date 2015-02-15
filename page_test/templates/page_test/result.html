@@ -5,6 +5,24 @@
 	Result of testing
 {% endblock %}
 
+{% block head %}
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="{% static 'page_test/main.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'page_test/result.css' %}">
+<script type="text/javascript" src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+{% endblock %}
+
 {% block content %}
-	Результаты тестирования
+	<div id="main">
+		<div class="col-sm-10 col-sm-offset-1" style="margin-top:20px;">
+			<h4>Результаты тестирования</h4>
+
+			<div>
+				{% for d in data %}
+					<div class="description"><img src="{{d.source}}">&nbsp;</div>
+					<div class="graphic" style="width:{{d.likes}}"></div>
+				{% endfor %}
+			</div>
+		</div>
+	</div>
 {% endblock %}
