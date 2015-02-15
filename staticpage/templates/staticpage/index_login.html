@@ -16,7 +16,7 @@
 
 					<select name="compain">
 					{% for d in data %}
-						<option value="{{d.access_token}}+{{d.id}}">{{d.name}}</option>
+						<option value="{{d.access_token}}+{{d.id}}+{{d.name}}">{{d.name}}</option>
 					{% endfor %}
 					</select>
 
