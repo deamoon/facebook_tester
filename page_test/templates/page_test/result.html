@@ -21,7 +21,11 @@
 				{% for d in data %}
 					<div class="description"><img class="logo" src="{{d.source}}">&nbsp;</div>
 					<br>
-					<div class="graphic" style="width:{{d.len}}px">{{d.likes}}</div>
+					{% if d.len <= 50%}
+						<div class="graphic show_text" style="width:{{d.len}}px">{{d.likes}}</div>
+					{% else %}
+						<div class="graphic" style="width:{{d.len}}px">{{d.likes}}</div>
+					{% endif %}
 				{% endfor %}
 			</div>
 		</div>
