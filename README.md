@@ -1,35 +1,15 @@
-# python-getting-started
+# facebook_tester
 
-A barebones Python app, which can easily be deployed to Heroku.
+mipt_hackathon 14-15 February 2015
 
-This application support the [Getting Started with Python on Heroku](https://devcenter.heroku.com/articles/getting-started-with-python) article - check it out.
+The django application for creation a/b testing company of cover image of your pages.
 
-## Running Locally
+Find the most effective cover image with science methods.
 
-Make sure you have Python [installed properly](http://install.python-guide.org).  Also, install the [Heroku Toolbelt](https://toolbelt.heroku.com/).
+Application use your facebook api tocken for creation a/b testing.
 
-```sh
-$ git clone git@github.com:heroku/python-getting-started.git
-$ cd python-getting-started
-$ pip install -r requirements.txt
-$ python manage.py syncdb
-$ foreman start web
-```
+You only need to chooce images, and application will change cover image every 10 minutes and calc new likes. The result of testing will available in your personal cabinet.
 
-Your app should now be running on [localhost:5000](http://localhost:5000/).
+The best with [heroku](https://heroku.com).
 
-## Deploying to Heroku
-
-```sh
-$ heroku create
-$ git push heroku master
-$ heroku run python manage.py syncdb
-$ heroku open
-```
-
-## Documentation
-
-For more information about using Python on Heroku, see these Dev Center articles:
-
-- [Python on Heroku](https://devcenter.heroku.com/categories/python)
-
+Don't forget use cron 10 minutes on clock.py
