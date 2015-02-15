@@ -114,13 +114,7 @@ DATABASES = {
     }
 }
 
-# DATABASES['default'] =  dj_database_url.config(default='postgres://user:pass@localhost/dbname')
-
-ON_HEROKU = False
-if ON_HEROKU:
-    DATABASES['default'] =  dj_database_url.config()
-
-# DATABASES = {'default': dj_database_url.config(default=DATABASE_URL)}
+DATABASES['default'] =  dj_database_url.config()
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.6/topics/i18n/
