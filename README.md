@@ -16,6 +16,7 @@ Don't forget use cron 10 minutes on clock.py
 
 # Contributrs:
 
-* [deamoon](http://giuthub.com/deamoon)
-* [kamiltalipov](http://giuthub.com/kamiltalipov)
-* [Taygrim](http://giuthub.com/Taygrim)
+* [deamoon](http://giuthub.com/deamoon) Ivanovskii Dmitrii
+* [kamiltalipov](http://giuthub.com/kamiltalipov) Talipov Kamil
+* [Taygrim](http://giuthub.com/Taygrim) Drozdovskii Andrey
+* [Kangar0o](http://giuthub.com/Kangar0o) Dobrinevskii Stepan
