@@ -19,19 +19,17 @@
 		<div class="col-sm-10 col-sm-offset-1" style="margin-top:25px;">
 			<h3>Привет, {{user.username}}!</h3>
 			<br>
-			<h4 style="font-weight:bold;">Select company:</h4>
+			<h4 style="font-weight:bold;">Add new company:</h4>
 			<br>
 			{% if data %}
 				<form role="form" action="" method="post">
 					{% csrf_token %}
-
-					<select name="company">
+					<label for="usr">Select page:</label>
+					<select name="company" class="form-control">
 					{% for d in data %}
 						<option value="{{d.access_token}}+{{d.id}}+{{d.name}}">{{d.name}}</option>
 					{% endfor %}
 					</select>
-
-					<br>
 
 					<div class="form-group" style="margin-top:20px;">
         				<label for="usr">End date:</label>
