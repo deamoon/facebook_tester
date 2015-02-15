@@ -16,11 +16,12 @@
 	<div id="main">
 		<div class="col-sm-10 col-sm-offset-1" style="margin-top:20px;">
 			<h4>Результаты тестирования</h4>
-
+			<br>
 			<div>
 				{% for d in data %}
-					<div class="description"><img src="{{d.source}}">&nbsp;</div>
-					<div class="graphic" style="width:{{d.likes}}"></div>
+					<div class="description"><img class="logo" src="{{d.source}}">&nbsp;</div>
+					<br>
+					<div class="graphic" style="width:{{d.likes}}px">{{d.likes}}</div>
 				{% endfor %}
 			</div>
 		</div>

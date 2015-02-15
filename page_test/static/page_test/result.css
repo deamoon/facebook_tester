@@ -6,10 +6,21 @@
 
 .graphic {
 	height: 50px;
+	line-height: 50px;
 	border-radius: 3px;
 	background: #0079ff;
+	margin-bottom: 50px;
+	margin-top: 50px;
+	color: white;
+	text-align: center;
+	font-weight: bold;
 }
 
 .graphic:hover {
 	background: #006ce8;
+}
+
+.logo {
+	height: 50px;
+	width: auto;
 }
