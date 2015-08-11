@@ -7,38 +7,10 @@ from django.shortcuts import redirect
 from datetime import datetime
 from django.shortcuts import get_object_or_404
 import requests
+from page_test.facebook import *
+import logging
 
-def strToDate(date):
-    dat, t = date.strip().split()
-    y, mon, d = dat.split('/')
-    h, m = t.split(':')
-    return datetime(int(y), int(mon), int(d), int(h), int(m))
-
-def get_like(token, id_page):
-    base_url = 'https://graph.facebook.com/' + id_page
-    url = '%s?access_token=%s' % (base_url, token,)
-    content = requests.get(url).json()
-    return int(content['likes'])
-
-def get_album_cover(token, id_page):
-    base_url = 'https://graph.facebook.com/' + id_page + "/albums"
-    url = '%s?access_token=%s' % (base_url, token,)
-    content = requests.get(url).json()
-    for d in content['data']:
-        if d["name"] == "Cover Photos":
-            return d["id"]
-    return ''
-
-
-def set_cover(user, company, cover):
-    fields = {
-        'cover':cover.id_photo, 
-        'access_token':company.token,
-        'no_notification':True,
-        'no_feed_story':True,
-    }
-    base_url = 'https://graph.facebook.com/' + company.id_page
-    content = requests.post(base_url, fields)
+logger = logging.getLogger('page_test')
 
 @login_required
 def detail(request, company_id):
@@ -70,13 +42,14 @@ def detail(request, company_id):
                 base_url = 'https://graph.facebook.com/' + company.album_cover + '/photos'
                 url = '%s?access_token=%s' % (base_url, company.token,)
                 content = requests.get(url).json()
+                logger.info(url, content)
             else:
                 content = {'data':[]}
 
             context = {
                 'user' : request.user,
                 'company' : company,
-                'data' : content["data"],                
+                'data' : content["data"],
             }
 
             return render(request, 'page_test/detail.html', context)
@@ -117,7 +90,7 @@ def add(request):
         # start = request.POST['start']
         end = request.POST['end']
         likes = get_like(token, id_page)
-        company = Company(token=token, id_page=id_page, user=request.user, name=name, 
+        company = Company(token=token, id_page=id_page, user=request.user, name=name,
                           start=datetime.now(),
                           end=strToDate(end),
                           level=0,

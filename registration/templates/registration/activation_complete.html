@@ -1,8 +1,0 @@
-{% extends "base.html" %}
-{% load i18n %}
-{% block content %}
-<h1>{% trans "Активация" %}</h1>
-{% trans "Привет" %}, {{ account }}!<br/>
-{% trans "Ваша учетная запись активирована" %}. <a href="{% url "auth_login" %}">{% trans "Заходите" %}</a> {% trans "на сайт" %}.
-<br/><br/>
-{% endblock %}

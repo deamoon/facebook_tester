@@ -4,3 +4,6 @@ staticfiles
 .env
 .DS_Store
 db.sqlite3
+*.log
+images/facebook_profiles/*
+testyourface/local_settings.py
