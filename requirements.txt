@@ -1,5 +1,5 @@
 APScheduler==3.0.0
-Django==1.6.5
+Django==1.7
 Pillow==2.7.0
 Unidecode==0.04.17
 argparse==1.2.1

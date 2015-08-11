@@ -1,11 +1,9 @@
 from django.db import models
-# from django.contrib.auth.models import User
-from django.contrib.auth import get_user_model as user_model
-User = user_model()
+from testyourface import settings
 
 class Company(models.Model):
     level = models.IntegerField()
-    user = models.ForeignKey(User)
+    user = models.ForeignKey(settings.AUTH_USER_MODEL)
     token = models.CharField(max_length=250)
     id_page = models.CharField(max_length=30, unique=True)
     name = models.CharField(max_length=300)
@@ -27,6 +25,6 @@ class Images(models.Model):
 	source = models.CharField(max_length=355)
 
 class UserToken(models.Model):
-	user = models.ForeignKey(User)
+	user = models.ForeignKey(settings.AUTH_USER_MODEL)
 	token = models.CharField(max_length=250)
 	id_facebook = models.CharField(max_length=50)
